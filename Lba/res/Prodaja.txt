@@ -5,3 +5,10 @@
 2 	: 6 	: Computer 	: 1 	: 12
 3 	: 12 	: Televizor 	: 12 	: 1
 3 	: 7 	: Utyug 	: 10 	: 1
+4 	: 12 	: Televizor 	: 12 	: 2
+4 	: 6 	: Computer 	: 1 	: 2
+5 	: 3 	: Phone 	: 1000 	: 1
+5 	: 4 	: Messeger 	: 156 	: 12
+6 	: 1 	: Utyug 	: 110 	: 2
+6 	: 12 	: Televizor 	: 12 	: 2
+6 	: 3 	: Phone 	: 1000 	: 2

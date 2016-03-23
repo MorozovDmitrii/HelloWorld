@@ -9,7 +9,7 @@ public class Main {
 	
 
 	static Scanner scn;
-	static Scanner scn2 = new Scanner(System.in);
+	static Scanner scn2;
 	
 
 
@@ -19,14 +19,13 @@ public class Main {
 	static ArrayList <Integer> price = new ArrayList<Integer>();
 	static ArrayList <Integer> number = new ArrayList<Integer>();
 	
-	static int idprod;
-	static ArrayList <Integer> idprodaji = new ArrayList<Integer>();
-	
 	static ArrayList <Integer> idp = new ArrayList<Integer>();
 	static ArrayList <String> namep = new ArrayList<String>();
 	static ArrayList <Integer> pricep = new ArrayList<Integer>();
 	static ArrayList <Integer> numberp = new ArrayList<Integer>();
 	
+	static int idprod;
+	static ArrayList <Integer> idprodaji = new ArrayList<Integer>();
 	static ArrayList <Integer> idprodan = new ArrayList<Integer>();
 	static ArrayList <String> nameprodan = new ArrayList<String>();
 	static ArrayList <Integer> priceprodan = new ArrayList<Integer>();
@@ -124,13 +123,16 @@ public class Main {
 							case 3:
 								System.out.println("Ваша покупка:");
 								System.out.println("ID\t: "+"Name\t: "+"Price\t: "+"Number\t");
+								int summapokupku=0;
 								for(int row=0;row<idp.size();row++){
 									
 									System.out.print(idp.get(row)+"\t: ");
 									System.out.print(namep.get(row)+"\t: ");
-									System.out.print(pricep.get(row)*numberp.get(row)+"\t: ");
+									System.out.print(pricep.get(row)+"\t: ");
 									System.out.println(numberp.get(row));
+									summapokupku=pricep.get(row)*numberp.get(row)+summapokupku;
 								}	
+								System.out.println("К оплате: "+summapokupku);
 								 write(fileName);
 								 idprod=SearchID2()+1;
 								 writeinProdaji();
@@ -242,7 +244,7 @@ public class Main {
 					}
 					else	
 					{	
-						
+						System.out.println("Товар удален!");
 						id.remove(searchid);
 						name.remove(searchid);
 						price.remove(searchid);
@@ -278,7 +280,7 @@ public class Main {
 		System.out.println("Введите пароль:");
 		String password =scn.next();	
 	if(password.equals("q1w2e3")){
-		System.out.println("Товар удален!");
+	
 		count=4;
 		return count;
 	}
