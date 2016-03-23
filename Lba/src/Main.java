@@ -50,9 +50,11 @@ public class Main {
 
 		int i=1;
 		while(i==1){
-			System.out.println("\n1) Продажа");
-			System.out.println("2) Пополнение");
-			System.out.println("3) Продажи");
+			System.out.println("\n1) Продажа товара");
+			System.out.println("2) Поставка товара");
+			System.out.println("3) Данные по продажам");
+			System.out.println("4) Удаление товара со склада");
+			System.out.println("для выхода введите любое число...");
 			System.out.print("Выберите действие:");
 			scn = new Scanner(System.in);
 			int KnopkaMenu=scn.nextInt();
@@ -130,7 +132,7 @@ public class Main {
 									System.out.println(numberp.get(row));
 								}	
 								 write(fileName);
-								 idprod=SearchID2();
+								 idprod=SearchID2()+1;
 								 writeinProdaji();
 							
 
@@ -217,6 +219,42 @@ public class Main {
 								break;
 							}
 			}
+						
+						
+			break;
+			case 4:
+					out();		
+					System.out.println("Введите ID товыра который хотите удалить:");
+					int delete =scn.nextInt();
+				
+					int count=0;
+					int password=0;
+					while(count<3){
+						count=vvodPassword(count);
+						if (count==4){
+							password=1;
+						}
+					}
+					if(password==1){
+					int searchid=SearchID(delete);
+					if(searchid==-1){
+						System.out.println("Такого товара нет!");
+					}
+					else	
+					{	
+						
+						id.remove(searchid);
+						name.remove(searchid);
+						price.remove(searchid);
+						number.remove(searchid);
+						write(fileName);
+					}
+					}
+					else{
+						System.out.println("Вы ввели 3 раза неправильный пароль, товар не удален!");
+					}
+					
+					
 			break;
 			default:System.out.println("Exit");i=0;
 			break;
@@ -234,6 +272,27 @@ public class Main {
 	
 
 	
+
+
+	private static int vvodPassword(int count) {
+		System.out.println("Введите пароль:");
+		String password =scn.next();	
+	if(password.equals("q1w2e3")){
+		System.out.println("Товар удален!");
+		count=4;
+		return count;
+	}
+	else{
+		count++;
+		System.out.println("Введен неверный пароль("+count+"/3)");
+		return count;
+		
+	}
+		
+	}
+
+
+
 
 
 	private static int SearchName(String vvodName) {
@@ -270,7 +329,7 @@ private static int SearchID2() {
 		
 		
 		
-		int MaxID=1;
+		int MaxID=0;
 		for(int row=0;row<idprodaji.size();row++){
 				if(idprodaji.get(row)>MaxID){
 					MaxID=idprodaji.get(row);
