@@ -1,0 +1,5 @@
+3 	: Phone 	: 1000 	: 58
+4 	: Messeger 	: 156 	: 23385
+6 	: Computer 	: 1 	: 49
+12 	: Televizor 	: 12 	: 1
+7 	: Utyug 	: 10 	: 0
